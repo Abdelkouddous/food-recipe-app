@@ -4,10 +4,14 @@
 .nav {
   background-color: #1d1c1b;
   color: whitesmoke;
-  position: relative !important;
+  position: static !important;
   width: 100%;
   margin: auto;
+  margin-bottom: 3px;
   transition: all 0.3s ease-out 0s !important;
+  display: flex;
+  vertical-align: middle;
+  justify-content: space-between;
   padding: 1rem 2rem 1rem !important;
   font-size: 1.2rem !important;
   box-shadow: 1rem 1rem 1rem rgba(9, 5, 29, 0.171);
@@ -18,9 +22,15 @@
   background-color: #1d1c1b !important;
   transition: all 0.3s ease-out 0s !important;
   box-shadow: 0px 10px 10px 0px rgba(9, 5, 29, 0.171) !important;
+  color: white;
+  height: 50px;
+  width: 50px;
   /* backdrop-filter: blur(15px) !important; */
 }
-
+.divs {
+  display: block;
+  position: relative;
+}
 .navbar-toggler {
   position: relative !important;
   background-color: transparent !important;

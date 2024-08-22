@@ -2,6 +2,7 @@
   color: #181616;
   background-color: whitesmoke;
   text-align: center;
+  width: 120%;
 }
 .App.dark {
   background-color: black;

@@ -12,6 +12,7 @@ body {
 
   --image-grayscale: 0;
   --image-opacity: 100%;
+  width: 100%;
 }
 
 body.dark {

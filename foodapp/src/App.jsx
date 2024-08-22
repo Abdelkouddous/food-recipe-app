@@ -9,14 +9,16 @@ import "./index.css";
 import Example from "./components/NavbarV2";
 function App() {
   const [foodData, setfoodData] = useState([]);
-
+  /**
+   * await isLoggedIn ? 'loggedIn' : 'notLoggedIn';
+   */
   return (
     <div>
       {/*
       to fix later
        <Example></Example> */}
-      <NavBar></NavBar>
       <div className="App">
+        <NavBar></NavBar>
         <Search foodData={foodData} setFoodData={setfoodData}></Search>
 
         {/* we will create a component for this
