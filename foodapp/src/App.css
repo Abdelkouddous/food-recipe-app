@@ -2,13 +2,30 @@
   color: #181616;
   background-color: whitesmoke;
   text-align: center;
-  width: 120%;
+
+  font-family: "Roboto";
+  transition: all 0.6s ease-in-out 2s !important;
 }
 .App.dark {
   background-color: black;
   color: whitesmoke;
+  transition: all 0.3s ease-in 3s !important;
 }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+  --color-shadow: #aaa;
+
+  --image-grayscale: 0;
+  --image-opacity: 100%;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

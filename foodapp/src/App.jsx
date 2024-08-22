@@ -6,29 +6,51 @@ import NavBar from "./components/NavBar";
 import "./App.css";
 import "./style.css";
 import "./index.css";
-import Example from "./components/NavbarV2";
+// import Example from "./components/NavbarV2";
+import Container from "./components/Container";
+import InnerContainer from "./components/innerContainer";
+
+// import FoodItem from "./components/FoodItem";
 function App() {
   const [foodData, setfoodData] = useState([]);
+  const [foodId, setfoodId] = useState("");
   /**
    * await isLoggedIn ? 'loggedIn' : 'notLoggedIn';
    */
   return (
-    <div>
-      {/*
-      to fix later
-       <Example></Example> */}
-      <div className="App">
-        <NavBar></NavBar>
-        <Search foodData={foodData} setFoodData={setfoodData}></Search>
+    <div className="App">
+      <NavBar></NavBar>
+      <Search foodData={foodData} setFoodData={setfoodData}></Search>
 
-        {/* we will create a component for this
-      {foodData.map((food) => (
-        <h1>{food.title}</h1>
-      ))} */}
-        <FoodList foodData={foodData} setFoodData={setfoodData}></FoodList>
-      </div>
+      <Container>
+        <InnerContainer>
+          <FoodList
+            setfoodId={setfoodId}
+            foodData={foodData}
+            setFoodData={setfoodData}
+          ></FoodList>
+        </InnerContainer>
+        {/* <InnerContainer> */}
+        {/* </InnerContainer>
+        <InnerContainer>
+          <FoodDetail></FoodDetail>
+        </InnerContainer> */}
+      </Container>
     </div>
   );
+
+  {
+    /*);
+      to fix later
+       <Example></Example> */
+  }
+
+  {
+    /* we will create a component for this
+      {foodData.map((food) => (
+        <h1>{food.title}</h1>
+      ))} */
+  }
 }
 
 export default App;
