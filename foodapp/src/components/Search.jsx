@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 //divide the url
 const URL = "https://api.spoonacular.com/recipes/complexSearch";
 const API_KEY = "fc9e9e9aafd94a89878c8096b6177417";
-export default function Search() {
+export default function Search({ foodData, setFoodData }) {
   //using useState to interact with user input fields
   const [query, setQuery] = useState("pizza");
   //use effect hook is mostly used in component
@@ -27,6 +27,7 @@ export default function Search() {
       //add await till the data is returned
       const data = await res.json();
       console.log(data.results);
+      setFoodData(data.results);
     }
     fetchFood();
   }, [query]);
@@ -39,10 +40,10 @@ export default function Search() {
         type="text"
         placeholder="Search..."
       />
-      <></>
+      {/* <></>
       <button>Search</button>
       <></>
-      <button>Clear</button>
+      <button>Clear</button> */}
     </div>
   );
 }

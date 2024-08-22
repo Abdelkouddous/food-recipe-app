@@ -1,28 +1,30 @@
 import { useState } from "react";
-import "./App.css";
 import Search from "./components/Search";
+import FoodList from "./components/FoodList";
+import NavBar from "./components/NavBar";
+//importing styles component
+import "./App.css";
+import "./style.css";
+import "./index.css";
+import Example from "./components/NavbarV2";
 function App() {
-  const [count, setCount] = useState(0);
+  const [foodData, setfoodData] = useState([]);
 
   return (
-    <div className="App">
-      {/* Hi react */}
-      {/* <h1>Hello, React!</h1>
-      <p>You clicked {count} times.</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-      <p>
-        <strong>{count % 2 === 0 ? "Even" : "Odd"}</strong>
-      </p>
-      <p>
-        <strong>{count % 3 === 0 ? "Fizz" : ""}</strong>
-        <strong>{count % 5 === 0 ? "Buzz" : ""}</strong>
-        {count % 3 !== 0 && count % 5 !== 0 ? count : ""}
-      </p>
-      <p>
-        <strong>{count % 7 === 0 ? "Seven" : ""}</strong>
-        {count % 7 !== 0 ? count : ""}
-      </p> */}
-      <Search></Search>
+    <div>
+      {/*
+      to fix later
+       <Example></Example> */}
+      <NavBar></NavBar>
+      <div className="App">
+        <Search foodData={foodData} setFoodData={setfoodData}></Search>
+
+        {/* we will create a component for this
+      {foodData.map((food) => (
+        <h1>{food.title}</h1>
+      ))} */}
+        <FoodList foodData={foodData} setFoodData={setfoodData}></FoodList>
+      </div>
     </div>
   );
 }
