@@ -4,10 +4,10 @@ import FoodDetails from "./FoodDetails";
 export default function FoodItem({ food, setfoodId }) {
   const [counter, setCounter] = useState(1);
   //state to get the food detail needed
-  const [foodz, setfoodIdz] = useState("658615");
+  const [foodz, setfoodIdz] = useState(0);
   return (
     <div className={styles.itemContainer}>
-      <img className={styles.imgContainer} style={{}} src={food.image} alt="" />
+      <img className={styles.imgContainer} src={food.image} alt="" />
       <div className={styles.nameButtonCardContainer}>
         <p className={styles.itemName}>{food.title}</p>
         <button
@@ -23,14 +23,20 @@ export default function FoodItem({ food, setfoodId }) {
         </button>
         <button
           className={styles.buttonItem}
-          onClick={() => setCounter(counter + 1)}
+          onClick={() => {
+            counter < 10
+              ? setCounter(counter + 1)
+              : (alert("Max quantity is 10"), setCounter(1));
+            // setCounter(counter + 1);
+            //setfoodId(food.pricePerServing);
+          }}
         >
           Add to cart
         </button>
-        <p className={styles.itemContent}>{counter}</p>
+        <p className={styles.itemContent}>Quantity : {counter}</p>
       </div>
+
       {/* component that shows the food recipe menu */}
-      <FoodDetails foodId={foodz}></FoodDetails>
     </div>
   );
 }

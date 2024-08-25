@@ -5,7 +5,8 @@ const URL = "https://api.spoonacular.com/recipes/complexSearch";
 //it should be saved in .env variable api key but will see it in the
 //next course
 //const API_KEY = "fc9e9e9aafd94a89878c8096b6177417";
-const API_KEY = "ce343a48d93c45b89ecba5bbaa15a60d";
+//const API_KEY = "ce343a48d93c45b89ecba5bbaa15a60d";
+const API_KEY = "122f7007acf94f79a4097801d20a8218";
 export default function Search({ foodData, setFoodData }) {
   //using useState to interact with user input fields
   const [query, setQuery] = useState("Pizza");

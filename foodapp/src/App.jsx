@@ -6,22 +6,37 @@ import NavBar from "./components/NavBar";
 import "./App.css";
 import "./style.css";
 import "./index.css";
-// import Example from "./components/NavbarV2";
+import styles from "./components/nav.module.css";
+import Example from "./components/NavbarV2";
 import Container from "./components/Container";
 import InnerContainer from "./components/innerContainer";
+import FoodDetails from "./components/FoodDetails";
 
 // import FoodItem from "./components/FoodItem";
 function App() {
   const [foodData, setfoodData] = useState([]);
   const [foodId, setfoodId] = useState("");
+  const [navColour, updateNavbar] = useState(false);
   /**
    * await isLoggedIn ? 'loggedIn' : 'notLoggedIn';
    */
   return (
-    <div className="App">
-      <NavBar></NavBar>
-      <Search foodData={foodData} setFoodData={setfoodData}></Search>
+    <div
+      className="App"
+      // style={{
+      //   backgroundColor: navColour ? "#333" : "#fff",
+      //   color: navColour ? "#fff" : "#333",
+      // }}
+    >
+      {/* <button
+        className={styles.sticky}
+        onClick={() => updateNavbar(!navColour)}
+      >
+        ☾
+      </button> */}
+      <Example></Example>
 
+      <Search foodData={foodData} setFoodData={setfoodData}></Search>
       <Container>
         <InnerContainer>
           <FoodList
@@ -29,13 +44,10 @@ function App() {
             foodData={foodData}
             setFoodData={setfoodData}
           ></FoodList>
+          <FoodDetails key={foodData.id} foodId={foodId}></FoodDetails>
         </InnerContainer>
-        {/* <InnerContainer> */}
-        {/* </InnerContainer>
-        <InnerContainer>
-          <FoodDetail></FoodDetail>
-        </InnerContainer> */}
       </Container>
+      <NavBar></NavBar>
     </div>
   );
 

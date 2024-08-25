@@ -1,3 +1,5 @@
 .innerContainer {
-  /* background-color: aqua; */
+  display: inline-flex;
+  align-items: top;
+  justify-content: space-around;
 }
