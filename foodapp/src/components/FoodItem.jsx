@@ -4,7 +4,7 @@ import FoodDetails from "./FoodDetails";
 export default function FoodItem({ food, setfoodId }) {
   const [counter, setCounter] = useState(1);
   //state to get the food detail needed
-  const [foodz, setfoodIdz] = useState(0);
+  // const [foodz, setfoodIdz] = useState(658615);
   return (
     <div className={styles.itemContainer}>
       <img className={styles.imgContainer} src={food.image} alt="" />

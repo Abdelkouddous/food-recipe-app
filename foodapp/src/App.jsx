@@ -15,7 +15,7 @@ import FoodDetails from "./components/FoodDetails";
 // import FoodItem from "./components/FoodItem";
 function App() {
   const [foodData, setfoodData] = useState([]);
-  const [foodId, setfoodId] = useState("");
+  const [foodId, setfoodId] = useState("658615");
   const [navColour, updateNavbar] = useState(false);
   /**
    * await isLoggedIn ? 'loggedIn' : 'notLoggedIn';

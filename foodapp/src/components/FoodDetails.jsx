@@ -1,16 +1,17 @@
 import styles from "./fooditem.module.css";
 import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
 //component that shows the food recipe menu
 export default function FoodDetails({ foodId }) {
-  const [food, setFood] = useState("");
+  const [food, setFood] = useState("658615");
   const [isLoading, setIsLoading] = useState(true);
 
   const URL = `https://api.spoonacular.com/recipes/${foodId}/information`;
   //it should be saved in .env variable api key but will see it in the
   //next course
   //const API_KEY = "fc9e9e9aafd94a89878c8096b6177417";
-  //const API_KEY = "ce343a48d93c45b89ecba5bbaa15a60d";
-  const API_KEY = "122f7007acf94f79a4097801d20a8218";
+  const API_KEY = "ce343a48d93c45b89ecba5bbaa15a60d";
+  // const API_KEY = "122f7007acf94f79a4097801d20a8218";
   useEffect(
     () => {
       //if u dont async call it it will not return because it doesnt wait for data to fetch
@@ -39,34 +40,46 @@ export default function FoodDetails({ foodId }) {
       {/* <img src={food.image} ></img> */}
       {/* lets make an api call to get the 
       food details */}
-      <h2>{food.title}</h2>
+      <h1 className={styles.itemName}>{food.title}</h1>
       <img src={food.image} className={styles.imgContainer}></img>
-      <br></br>
-      <span>
-        {/* call the setstate food */}
-        <strong>🛎️ {food.readyInMinutes} min</strong>
-      </span>{" "}
-      <br></br>
-      <span>{food.vegetarian ? "Vegetarian" : "Non-Vegetarian"}</span>
-      <span>
-        <br></br>
-        <strong>Serves 👨‍👩‍👦‍👦 {food.servings}</strong>
-      </span>
+      <div className={styles.recipeDetails}>
+        <span>
+          {/* call the setstate food */}
+          <strong>🛎️ {food.readyInMinutes} min</strong>
+        </span>{" "}
+        <span>{food.vegetarian ? "Vegetarian" : "Non-Vegetarian"}</span>
+        <span>
+          <strong>👨‍👩‍👦‍👦 Serves {food.servings}</strong>
+        </span>
+      </div>
       <div>
         <span>
-          $<strong>{Math.round(food.pricePerServing / 100, 2)} </strong> per
+          $<strong>{(food.pricePerServing / 100).toFixed(2)} </strong> per
           serving
         </span>
       </div>
       <div>
-        <h2> Instructions</h2>
-        {isLoading
-          ? "Loading ..."
-          : food.analyzedInstructions[0].steps.map((step) => (
-              <li>{step.step}</li>
-            ))}
-
-        <strong></strong>
+        {/* INGREDIENTS */}
+        <h1 className="text-gray-300 hover:bg-gray-700 hover:text-white hover:scale-110">
+          {" "}
+          Ingredients{" "}
+        </h1>
+      </div>
+      {/*  */}
+      <ItemList food={food} isLoading={isLoading}></ItemList>
+      {/*  */}
+      <div>
+        <h1 className="text-gray-300 hover:bg-gray-700 hover:text-white hover:scale-110">
+          {" "}
+          Instructions{" "}
+        </h1>
+      </div>
+      <div style={{ padding: "10px", boxShadow: "0 2px 3px #bfc5d466" }}>
+        {isLoading ? (
+          <p>Loading ...</p>
+        ) : (
+          food.analyzedInstructions[0].steps.map((step) => <li>{step.step}</li>)
+        )}
       </div>
     </div>
   );

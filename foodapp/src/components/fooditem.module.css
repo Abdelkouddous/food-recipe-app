@@ -28,7 +28,7 @@
   flex-direction: column;
   border-radius: 25%;
   min-width: 50%;
-  max-width: 50%;
+  max-width: 60%;
   border-color: rgba(0, 0, 0, 0.4);
   box-shadow: 1px 0px 2px 2px #0f172a66;
   margin: 2px;
@@ -66,16 +66,27 @@
   color: azure;
   align-items: center;
   max-height: 768px;
+  max-width: 30%;
   margin: 6px;
-  padding: 6px;
-  max-width: 50%;
+  margin-left: 12px;
+  padding: 12px;
+  border-radius: 2px;
   overflow: scroll;
   box-shadow: 0 3px 8px #0f172a66;
-
   /* ; */
   font-family: "Montserrat", "Cambria", "Cochin", "Times New Roman", serif;
 }
 
+.recipeDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 8px #bfc5d466;
+  min-width: 75%;
+  vertical-align: middle;
+}
 @media (max-width: 768px) {
   .itemName {
     font-size: 0.8em;
